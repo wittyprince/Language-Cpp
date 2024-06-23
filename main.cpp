@@ -21,6 +21,14 @@ void changeWithCppWithNoEffect(int j) {
     j = j + 1;
 }
 
+void modifyPointerWithCpp(int *&a, int *b) { // 引用必须和变量名紧邻
+    a = b;
+}
+
+void modifyPointerWithC(int **a, int *b) { // 引用必须和变量名紧邻
+    *a = b;
+}
+
 int main() {
     int i = 10;
     printf("modify with C before change: %d\n", i);
@@ -33,5 +41,14 @@ int main() {
 
     printf("-----------------------------------\n");
 
+    int *p = NULL;
+    int a = 10;
+    int *q = &a;
+//    p = q;
+    modifyPointerWithCpp(p, q);
+    printf("%d", *p);
+
+    modifyPointerWithC(&p, q);
+    printf("%d", *p);
     return 0;
 }
