@@ -32,23 +32,23 @@ typedef struct {
 /**
  * 插入元素
  * L 要插入元素的顺序表(或数组，底层是用数组实现的)
- * i 要插入的位置, 从1开始 到 L.length+1结束
+ * idx 要插入的位置, 从1开始 到 L.length+1结束
  * e 要插入的元素
  */
-bool ListInsert(SqList &L, int i, ElementType e) {
+bool ListInsert(SqList &L, int idx, ElementType e) {
     // 注意：这里是 L.length, 而不是MaxSize。
     // 因为插入元素是顺序插入，即从第1个位置开始，到L.length+1结束之间的位置可以插入元素
     // 不会跳跃式的插入到L.length+2，因为中间不允许有空的位置出现
-    if (i<1 || i > L.length + 1) { // 判断要插入的位置是否合法
+    if (idx < 1 || idx > L.length + 1) { // 判断要插入的位置是否合法
         return false;
     }
     if (L.length + 1 > MaxSize) { // 超出最大空间了
         return false;
     }
-    for (int j = L.length; j >= i; j--) { // 从后往前移动元素
+    for (int j = L.length; j >= idx; j--) { // 从后往前移动元素
         L.data[j] = L.data[j - 1];
     }
-    L.data[i - 1] = e; // 插入元素
+    L.data[idx - 1] = e; // 插入元素
     L.length++; // 长度变更
     return true;
 }
@@ -60,4 +60,22 @@ void printList(SqList L) {
     printf("\n");
 }
 
+/**
+ * 删除顺序表中的元素
+ * L 要删除元素的顺序表(或数组，底层是用数组实现的)
+ * idx 要删除的元素的位置
+ * e 位置i上的元素的值(即要被删除的元素的值)
+ */
+bool ListDelete(SqList &L, int idx, ElementType &e) {
+    // 合法性检查
+    if (idx < 1 || idx > L.length) { // 判断要删除的位置是否合法
+        return false;
+    }
+    e = L.data[idx - 1];
+    for (int j = idx; j < L.length; ++j) {
+        L.data[j - 1] = L.data[j];
+    }
+    L.length--;
+    return true;
+}
 #endif //LANGUAGE_CPP_SQLIST_HEADER_H

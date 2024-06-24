@@ -77,6 +77,16 @@ int main() {
         printf("insert fail\n");
     }
 
+    ElementType deletedElement;
+    bool deleted = ListDelete(sqList, 5, deletedElement);
+    if (deleted) {
+        printf("delete success\n");
+        printf("the deleted element is:%d\n", deletedElement);
+        printList(sqList);
+    } else {
+        printf("delete failed\n");
+    }
+
     printf("----Sequence List end ----\n");
 
     return 0;
