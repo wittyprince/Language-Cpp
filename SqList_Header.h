@@ -7,11 +7,16 @@
 
 #include <stdio.h>
 
+// #define定义的符号常量语句后不能有分号;
 #define MaxSize 50
+// typedef定义的别名后需要加分号;
 typedef int ElementType;
 // 静态分配
+// 线性表(逻辑结构)的存储方式之一：顺序表
+// 定义顺序表的实现方式(注意顺序表是物理结构)
+// 底层是数组实现的
 typedef struct {
-    ElementType data[MaxSize];
+    ElementType data[MaxSize]; // 底层用数组来实现
     int length; // 当前顺序表中有多少个元素
 }SqList;
 
@@ -40,11 +45,11 @@ bool ListInsert(SqList &L, int i, ElementType e) {
     if (L.length + 1 > MaxSize) { // 超出最大空间了
         return false;
     }
-    for (int j = L.length; j >= i; j--) {
+    for (int j = L.length; j >= i; j--) { // 从后往前移动元素
         L.data[j] = L.data[j - 1];
     }
-    L.data[i - 1] = e;
-    L.length++;
+    L.data[i - 1] = e; // 插入元素
+    L.length++; // 长度变更
     return true;
 }
 
@@ -54,4 +59,5 @@ void printList(SqList L) {
     }
     printf("\n");
 }
+
 #endif //LANGUAGE_CPP_SQLIST_HEADER_H
