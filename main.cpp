@@ -87,6 +87,9 @@ int main() {
         printf("delete failed\n");
     }
 
+    int idx = LocateElement(sqList, 9);
+    printf("idx= %d\n", idx);
+
     printf("----Sequence List end ----\n");
 
     return 0;

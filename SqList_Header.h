@@ -78,4 +78,18 @@ bool ListDelete(SqList &L, int idx, ElementType &e) {
     L.length--;
     return true;
 }
+
+/**
+ * 查找某个元素的位置，找到就返回对应的位置，找不到返回0
+ * L 要查找的顺序表
+ * e 要查找的元素
+ */
+int LocateElement(SqList L, ElementType e) {
+    for (int i = 0; i < L.length; ++i) {
+        if (L.data[i] == e) {
+            return i + 1;
+        }
+    }
+    return 0;
+}
 #endif //LANGUAGE_CPP_SQLIST_HEADER_H
