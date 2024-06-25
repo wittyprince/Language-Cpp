@@ -1,5 +1,6 @@
 //#include <stdio.h>
 #include "SqList_Header.h"
+#include "SeqList_Header.h"
 
 /**
  * 在子函数中修改主函数的变量值
@@ -89,6 +90,12 @@ int main() {
 
     int idx = LocateElement(sqList, 9);
     printf("idx= %d\n", idx);
+
+    // 使用动态分配方式
+    SeqList seqList;
+    InitList(seqList);
+
+
 
     printf("----Sequence List end ----\n");
 

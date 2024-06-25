@@ -20,14 +20,6 @@ typedef struct {
     int length; // 当前顺序表中有多少个元素
 }SqList;
 
-// 动态分配
-typedef struct {
-    // 定义了一个ElemType类型的指针，用于指向动态分配的内存空间
-    // 由于顺序表中的元素类型均相同，所以可以通过指针偏移来进行存取数据
-    ElementType *data;
-    int max; // 动态数组的最大容量
-    int length;
-}SeqList;
 
 /**
  * 插入元素
