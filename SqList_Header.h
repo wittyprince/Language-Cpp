@@ -24,24 +24,24 @@ typedef struct {
 /**
  * 插入元素
  * L 要插入元素的顺序表(或数组，底层是用数组实现的)
- * idx 要插入的位置, 从1开始 到 L.length+1结束
+ * position 要插入的位置, 从1开始 到 L.length+1结束
  * e 要插入的元素
  */
-bool ListInsert(SqList &L, int idx, ElementType e) {
+bool ListInsert(SqList &L, int position, ElementType e) {
     // 注意：这里是 L.length, 而不是MaxSize。
     // 因为插入元素是顺序插入，即从第1个位置开始，到L.length+1结束之间的位置可以插入元素
     // 不会跳跃式的插入到L.length+2，因为中间不允许有空的位置出现
-    // idx 1 <= idx <= L.length + 1
-    if (idx < 1 || idx > L.length + 1) { // ① 判断要插入的位置是否合法
+    // position 1 <= position <= L.length + 1
+    if (position < 1 || position > L.length + 1) { // ① 判断要插入的位置是否合法
         return false;
     }
     if (L.length + 1 > MaxSize) { // ②判断是否超出最大空间了
         return false;
     }
-    for (int j = L.length; j >= idx; j--) { // ③移动元素，从后往前移动元素
+    for (int j = L.length; j >= position; j--) { // ③移动元素，从后往前移动元素
         L.data[j] = L.data[j - 1];
     }
-    L.data[idx - 1] = e; // ④插入元素
+    L.data[position - 1] = e; // ④插入元素
     L.length++; // ⑤长度变更
     return true;
 }
@@ -56,16 +56,16 @@ void printList(SqList L) {
 /**
  * 删除顺序表中的元素
  * L 要删除元素的顺序表(或数组，底层是用数组实现的)
- * idx 要删除的元素的位置
+ * position 要删除的元素的位置
  * e 位置i上的元素的值(即要被删除的元素的值)
  */
-bool ListDelete(SqList &L, int idx, ElementType &e) {
-    // 合法性检查 idx 1 <= idx <= L.length
-    if (idx < 1 || idx > L.length) { // ①判断要删除的位置是否合法
+bool ListDelete(SqList &L, int position, ElementType &e) {
+    // 合法性检查 position 1 <= position <= L.length
+    if (position < 1 || position > L.length) { // ①判断要删除的位置是否合法
         return false;
     }
-    e = L.data[idx - 1]; // ②取要被删除的元素
-    for (int j = idx; j < L.length; ++j) { // ③移动元素
+    e = L.data[position - 1]; // ②取要被删除的元素
+    for (int j = position; j < L.length; ++j) { // ③移动元素
         L.data[j - 1] = L.data[j];
     }
     L.length--; // ④修改长度
