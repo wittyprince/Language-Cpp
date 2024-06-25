@@ -60,10 +60,17 @@ void printLinkedList(LinkedList L) {
 
 /**
  * 按位置查找
+ * L            带头结点的单链表
+ * position     要查找的位置
+ *     0        表示返回头结点
+ *     1~其他    表示该位置上的节点的指针
  */
 LNode *getElement(LinkedList L, int position) {
-    if (position < 1) {
+    if (position < 0) {
         return NULL;
+    }
+    if (position == 0) {
+        return L;
     }
     LNode *cursor = L;
     for (int i = 1; i <= position && cursor != NULL; ++i) {
@@ -86,8 +93,47 @@ LNode *locateElement(LinkedList L, ElementType e) {
     return cursor;
 }
 
+/**
+ * 插入节点
+ *      -- 前插方式：在某节点的前面插入一个新节点
+ *      -- 后插方式：在某节点的后面插入一个新节点
+ *      -- 本方法采用后插方式，即找到position-1的节点，在其后插入新节点
+ * L            带头结点的单链表
+ * position     要插入的位置, 取值范围为 >=1
+ * e            要插入的元素
+ */
+bool insertIntoList(LinkedList &L, int position, ElementType e) {
+    if (position < 1) {
+        return false;
+    }
+//    LNode *firstNode = L->next;
+    LNode *prior = getElement(L, position - 1);
+    if (prior == NULL) {
+        return false;
+    }
+    LNode *tmp = (LNode *)malloc(sizeof (LNode));
+    tmp->data = e;
+    tmp->next = prior->next;
+    prior->next = tmp;
+    return true;
+}
 
-bool deleteNode() {
+/**
+ * 删除节点
+ * L            带头结点的单链表
+ * position     要删除的位置, 取值范围为 >=1
+ */
+bool deleteFromList(LinkedList &L, int position) {
+    if (position < 1) {
+        return false;
+    }
+    LNode *prior = getElement(L, position -1);
+    if (prior == NULL || prior->next == NULL) {
+        return false;
+    }
+    LNode *q = prior->next;
+    prior->next = q->next;
+    free(q);
     return true;
 }
 

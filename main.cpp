@@ -114,6 +114,22 @@ int main() {
 
     LNode *locatedElement = locateElement(linkedList, 6);
 
+    bool insertResult = insertIntoList(linkedList, 7, 6);
+    if (insertResult) {
+        printf("insert into LinkedList success\n");
+        printLinkedList(linkedList);
+    } else {
+        printf("insert into LinkedList failed\n");
+    }
+
+    bool deletedFromList = deleteFromList(linkedList, 6);
+    if (deletedFromList) {
+        printf("delete success\n");
+        printLinkedList(linkedList);
+    } else {
+        printf("delete failed\n");
+    }
+
 
     printf("----Link List end ----\n");
 
