@@ -1,6 +1,7 @@
 //#include <stdio.h>
 #include "SqList_Header.h"
 #include "SeqList_Header.h"
+#include "LinkedList.h"
 
 /**
  * 在子函数中修改主函数的变量值
@@ -95,9 +96,24 @@ int main() {
     SeqList seqList;
     InitList(seqList);
 
-
-
     printf("----Sequence List end ----\n");
+
+    printf("----Link List start ----\n");
+
+    LinkedList linkedList; // 定义一个链表
+    initLinkedList(linkedList);
+    insertIntoLinkedListHead(linkedList, 1);
+    insertIntoLinkedListHead(linkedList, 2);
+    insertIntoLinkedListHead(linkedList, 3);
+    printLinkedList(linkedList);
+    insertIntoLinkedListTail(linkedList, 4);
+    insertIntoLinkedListTail(linkedList, 5);
+    printLinkedList(linkedList);
+
+    LNode *node = getElement(linkedList, 7);
+
+
+    printf("----Link List end ----\n");
 
     return 0;
 }
