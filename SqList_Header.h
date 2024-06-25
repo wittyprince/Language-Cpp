@@ -31,17 +31,17 @@ bool ListInsert(SqList &L, int idx, ElementType e) {
     // 注意：这里是 L.length, 而不是MaxSize。
     // 因为插入元素是顺序插入，即从第1个位置开始，到L.length+1结束之间的位置可以插入元素
     // 不会跳跃式的插入到L.length+2，因为中间不允许有空的位置出现
-    if (idx < 1 || idx > L.length + 1) { // 判断要插入的位置是否合法
+    if (idx < 1 || idx > L.length + 1) { // ① 判断要插入的位置是否合法
         return false;
     }
-    if (L.length + 1 > MaxSize) { // 超出最大空间了
+    if (L.length + 1 > MaxSize) { // ②判断是否超出最大空间了
         return false;
     }
-    for (int j = L.length; j >= idx; j--) { // 从后往前移动元素
+    for (int j = L.length; j >= idx; j--) { // ③移动元素，从后往前移动元素
         L.data[j] = L.data[j - 1];
     }
-    L.data[idx - 1] = e; // 插入元素
-    L.length++; // 长度变更
+    L.data[idx - 1] = e; // ④插入元素
+    L.length++; // ⑤长度变更
     return true;
 }
 
@@ -60,14 +60,15 @@ void printList(SqList L) {
  */
 bool ListDelete(SqList &L, int idx, ElementType &e) {
     // 合法性检查
-    if (idx < 1 || idx > L.length) { // 判断要删除的位置是否合法
+    if (idx < 1 || idx > L.length) { // ①判断要删除的位置是否合法
         return false;
     }
-    e = L.data[idx - 1];
-    for (int j = idx; j < L.length; ++j) {
+    e = L.data[idx - 1]; // ②取要被删除的元素
+    for (int j = idx; j < L.length; ++j) { // ③移动元素
         L.data[j - 1] = L.data[j];
     }
-    L.length--;
+    L.length--; // ④修改长度
+
     return true;
 }
 
