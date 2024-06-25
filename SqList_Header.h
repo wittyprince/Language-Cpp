@@ -31,7 +31,7 @@ bool ListInsert(SqList &L, int idx, ElementType e) {
     // 注意：这里是 L.length, 而不是MaxSize。
     // 因为插入元素是顺序插入，即从第1个位置开始，到L.length+1结束之间的位置可以插入元素
     // 不会跳跃式的插入到L.length+2，因为中间不允许有空的位置出现
-    if (idx < 1 || idx > L.length + 1) { // ① 判断要插入的位置是否合法
+    if (idx < 1 || idx > L.length + 1) { // ① 判断要插入的位置是否合法 idx 1 <= idx <= L.length
         return false;
     }
     if (L.length + 1 > MaxSize) { // ②判断是否超出最大空间了
@@ -59,7 +59,7 @@ void printList(SqList L) {
  * e 位置i上的元素的值(即要被删除的元素的值)
  */
 bool ListDelete(SqList &L, int idx, ElementType &e) {
-    // 合法性检查
+    // 合法性检查 idx 1 <= idx <= L.length
     if (idx < 1 || idx > L.length) { // ①判断要删除的位置是否合法
         return false;
     }
