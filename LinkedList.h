@@ -78,7 +78,13 @@ LNode *getElement(LinkedList L, int position) {
 /**
  * 按值查找
  */
-
+LNode *locateElement(LinkedList L, ElementType e) {
+    LNode *cursor = L->next;
+    while (cursor != NULL && cursor->data != e) {
+        cursor = cursor->next;
+    }
+    return cursor;
+}
 
 
 bool deleteNode() {

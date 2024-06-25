@@ -110,7 +110,9 @@ int main() {
     insertIntoLinkedListTail(linkedList, 5);
     printLinkedList(linkedList);
 
-    LNode *node = getElement(linkedList, 7);
+    LNode *gotElement = getElement(linkedList, 7);
+
+    LNode *locatedElement = locateElement(linkedList, 6);
 
 
     printf("----Link List end ----\n");
