@@ -130,6 +130,8 @@ int main() {
         printf("delete failed\n");
     }
 
+    int theLengthOfLinkedList = getLinkedListLength(linkedList);
+    printf("theLengthOfLinkedList: %d\n", theLengthOfLinkedList);
 
     printf("----Link List end ----\n");
 

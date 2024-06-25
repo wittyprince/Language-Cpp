@@ -137,5 +137,18 @@ bool deleteFromList(LinkedList &L, int position) {
     return true;
 }
 
+/**
+ * 求链表长度
+ * L 带头结点的单链表
+ */
+int getLinkedListLength(LinkedList L) {
+    int length = 0;
+    while (L->next != NULL) {
+        L = L->next;
+        length++;
+    }
+    return length;
+}
+
 
 #endif //LANGUAGE_CPP_LINKEDLIST_H
