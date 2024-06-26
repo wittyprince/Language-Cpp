@@ -75,6 +75,22 @@ void printLinkedList2(LinkedList2 linkedList2) {
     printf("\n");
 }
 
+/**
+ * 按位置查找
+ */
+LNode2Alias *getElement2(LinkedList2 linkedList2, int position) {
+    if (position < 0) {
+        return NULL;
+    }
+    if (position == 0) {
+        return linkedList2;
+    }
+    linkedList2 = linkedList2->next;
+    for (int i = 1; i < position&&linkedList2 != NULL; ++i) {
+        linkedList2 = linkedList2->next;
+    }
+    return linkedList2;
+}
 
 
 #endif //LANGUAGE_CPP_LINKEDLIST2_H
