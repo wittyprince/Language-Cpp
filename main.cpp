@@ -2,6 +2,7 @@
 #include "SqList_Header.h"
 #include "SeqList_Header.h"
 #include "LinkedList.h"
+#include "LinkedList2.h"
 
 /**
  * 在子函数中修改主函数的变量值
@@ -134,6 +135,13 @@ int main() {
     printf("theLengthOfLinkedList: %d\n", theLengthOfLinkedList);
 
     printf("----Link List end ----\n");
+
+    printf("----Link List2 start ----\n");
+    LinkedList2 linkedList2;
+//    list_head_insert(linkedList2);
+//    printLinkedList2(linkedList2);
+
+    printf("----Link List2 end ----\n");
 
     return 0;
 }
