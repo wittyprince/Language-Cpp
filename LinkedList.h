@@ -50,6 +50,11 @@ bool insertIntoLinkedListTail(LinkedList &L, ElementType e) {
     return true;
 }
 
+/**
+ * 参考 printLinkedList2 ，更简洁易懂
+ *
+ * L 带头结点的链表, 可以考虑以L-next(即第一个节点)为起点来处理, 这样思路更清晰
+ */
 void printLinkedList(LinkedList L) {
     while (L->next != NULL) {
         L = L->next;
@@ -72,6 +77,9 @@ LNode *getElement(LinkedList L, int position) {
     if (position == 0) {
         return L;
     }
+
+    // 参考getElement2，更简洁易懂
+    // 以L-next(即第一个节点)为起点来处理, 这样思路更清晰
     LNode *cursor = L;
     for (int i = 1; i <= position && cursor != NULL; ++i) {
         if (cursor->next != NULL) {
