@@ -41,6 +41,29 @@ LinkedList2 list_head_insert(LinkedList2 &linkedList2) {
 }
 
 /**
+ * 尾插法
+ */
+LinkedList2 list_tail_insert(LinkedList2 &linkedList2) {
+    LNode2Alias *headNode = (LNode2Alias*)malloc(sizeof (LNode2Alias)); // 头结点
+    headNode->data = 0;
+    headNode->next = NULL;
+    LNode2Alias *tail = headNode; // 定义尾指针
+    linkedList2 = headNode; // 头指针
+    int value = 0;
+    scanf("%d", &value);
+    while (value != 9999) {
+        LNode2Alias *tmpNode = (LNode2Alias*)malloc(sizeof (LNode2Alias));
+        tmpNode->data = value;
+        tmpNode->next = NULL;
+        tail->next = tmpNode;
+        tail = tmpNode;
+        scanf("%d", &value);
+    }
+
+    return linkedList2;
+}
+
+/**
  * 打印链表
  */
 void printLinkedList2(LinkedList2 linkedList2) {

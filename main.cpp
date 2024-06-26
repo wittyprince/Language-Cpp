@@ -140,6 +140,8 @@ int main() {
     LinkedList2 linkedList2;
 //    list_head_insert(linkedList2);
 //    printLinkedList2(linkedList2);
+//    list_tail_insert(linkedList2);
+//    printLinkedList2(linkedList2);
 
     printf("----Link List2 end ----\n");
 
