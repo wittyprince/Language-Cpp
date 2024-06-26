@@ -92,5 +92,15 @@ LNode2Alias *getElement2(LinkedList2 linkedList2, int position) {
     return linkedList2;
 }
 
+/**
+ * 按值查找
+ */
+LNode2Alias *locateElement(LinkedList2 linkedList2, ElementType e) {
+    linkedList2 = linkedList2->next;
+    while (linkedList2 != NULL && linkedList2->data != e) {
+        linkedList2 = linkedList2->next;
+    }
+    return linkedList2;
+}
 
 #endif //LANGUAGE_CPP_LINKEDLIST2_H

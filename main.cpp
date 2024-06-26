@@ -143,6 +143,7 @@ int main() {
 //    list_tail_insert(linkedList2);
 //    printLinkedList2(linkedList2);
 //    LNode2Alias *lNode2 = getElement2(linkedList2, 5);
+//    LNode2Alias *locatedElement2 = locateElement(linkedList2, 4);
 
     printf("----Link List2 end ----\n");
 
