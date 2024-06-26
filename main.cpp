@@ -140,10 +140,17 @@ int main() {
     LinkedList2 linkedList2;
 //    list_head_insert(linkedList2);
 //    printLinkedList2(linkedList2);
-//    list_tail_insert(linkedList2);
-//    printLinkedList2(linkedList2);
+    list_tail_insert(linkedList2);
+    printLinkedList2(linkedList2);
 //    LNode2Alias *lNode2 = getElement2(linkedList2, 5);
 //    LNode2Alias *locatedElement2 = locateElement(linkedList2, 4);
+    bool insertedIntoList2 = insertIntoList2(linkedList2, 5, 9);
+    if (insertedIntoList2) {
+        printf("insert into list2 success\n");
+        printLinkedList2(linkedList2);
+    } else {
+        printf("insert into list2 failed\n");
+    }
 
     printf("----Link List2 end ----\n");
 

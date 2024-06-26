@@ -103,4 +103,28 @@ LNode2Alias *locateElement(LinkedList2 linkedList2, ElementType e) {
     return linkedList2;
 }
 
+/**
+ * 插入节点
+ *      -- 前插方式：在某节点的前面插入一个新节点
+ *      -- 后插方式：在某节点的后面插入一个新节点
+ *      -- 本方法采用后插方式，即找到position-1的节点，在其后插入新节点
+ * linkedList2  带头结点的单链表
+ * position     要插入的位置, 取值范围为 >=1
+ * e            要插入的元素
+ */
+bool insertIntoList2(LinkedList2 &linkedList2, int position, ElementType e) {
+    if (position < 1) {
+        return false;
+    }
+    LNode2Alias *priorNode = getElement2(linkedList2, position - 1);
+    if (priorNode == NULL) {
+        return false;
+    }
+    LNode2Alias *tmpNode = (LNode2Alias*) malloc(sizeof (LNode2Alias));
+    tmpNode->data = e;
+    tmpNode->next = priorNode->next;
+    priorNode->next = tmpNode;
+    return true;
+}
+
 #endif //LANGUAGE_CPP_LINKEDLIST2_H
