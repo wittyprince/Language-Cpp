@@ -127,4 +127,23 @@ bool insertIntoList2(LinkedList2 &linkedList2, int position, ElementType e) {
     return true;
 }
 
+/**
+ * 删除节点
+ * linkedList2            带头结点的单链表
+ * position     要删除的位置, 取值范围为 >=1
+ */
+bool deleteFromList2(LinkedList2 &linkedList2, int position) {
+    if (position < 1) {
+        return false;
+    }
+    LNode2Alias *prior = getElement2(linkedList2, position - 1);
+    if (prior == NULL || prior->next == NULL) {
+        return false;
+    }
+    LNode2Alias *q = prior->next;
+    prior->next = q->next;
+    free(q);
+    return true;
+}
+
 #endif //LANGUAGE_CPP_LINKEDLIST2_H

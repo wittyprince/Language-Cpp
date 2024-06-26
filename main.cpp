@@ -144,13 +144,21 @@ int main() {
     printLinkedList2(linkedList2);
 //    LNode2Alias *lNode2 = getElement2(linkedList2, 5);
 //    LNode2Alias *locatedElement2 = locateElement(linkedList2, 4);
-    bool insertedIntoList2 = insertIntoList2(linkedList2, 5, 9);
-    if (insertedIntoList2) {
-        printf("insert into list2 success\n");
+//    bool insertedIntoList2 = insertIntoList2(linkedList2, 5, 9);
+//    if (insertedIntoList2) {
+//        printf("insert into list2 success\n");
+//        printLinkedList2(linkedList2);
+//    } else {
+//        printf("insert into list2 failed\n");
+//    }
+    bool deletedFromList2 = deleteFromList2(linkedList2, 4);
+    if (deletedFromList2) {
+        printf("delete from List2 success\n");
         printLinkedList2(linkedList2);
     } else {
-        printf("insert into list2 failed\n");
+        printf("delete from List2 failed\n");
     }
+
 
     printf("----Link List2 end ----\n");
 
