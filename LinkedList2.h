@@ -143,6 +143,7 @@ bool deleteFromList2(LinkedList2 &linkedList2, int position) {
     LNode2Alias *q = prior->next;
     prior->next = q->next;
     free(q);
+    q = NULL; // 防止对free后的指针再次使用，发生内存错误
     return true;
 }
 
