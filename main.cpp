@@ -5,6 +5,7 @@
 #include "LinkedList2.h"
 #include "SqStack.h"
 #include "ListStack.h"
+#include "SqQueue.h"
 
 /**
  * 在子函数中修改主函数的变量值
@@ -197,6 +198,27 @@ int main() {
     popListStack(listStackNode, popElement);
     printf("popElement=%d\n", popElement);
     printf("----List Stack end ----\n");
+
+    printf("----Sq Queue start ----\n");
+    SqQueue sqQueue;
+    initSqQueue(sqQueue);
+    bool sqQueueEmpty = isSqQueueEmpty(sqQueue);
+    if (sqQueueEmpty) {
+        printf("sqQueueEmpty empty\n");
+    } else {
+        printf("sqQueueEmpty not empty\n");
+    }
+    enSqQueue(sqQueue, 1);
+    enSqQueue(sqQueue, 2);
+    enSqQueue(sqQueue, 3);
+    ElementType deQueueElement;
+    deSqQueue(sqQueue, deQueueElement);
+    printf("deQueueElement:%d\n", deQueueElement);
+    deSqQueue(sqQueue, deQueueElement);
+    printf("deQueueElement:%d\n", deQueueElement);
+
+
+    printf("----Sq Queue end ----\n");
 
     return 0;
 }
