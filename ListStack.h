@@ -9,6 +9,7 @@
 
 typedef int ElementType;
 
+//TODO 对不对？
 typedef struct ListStackNode {
     ElementType data; // 定义链表的数据域
     struct ListStackNode *next; // 定义链表的指针域
