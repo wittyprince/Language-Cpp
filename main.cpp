@@ -3,6 +3,7 @@
 #include "SeqList_Header.h"
 #include "LinkedList.h"
 #include "LinkedList2.h"
+#include "SqStack.h"
 
 /**
  * 在子函数中修改主函数的变量值
@@ -137,11 +138,11 @@ int main() {
     printf("----Link List end ----\n");
 
     printf("----Link List2 start ----\n");
-    LinkedList2 linkedList2;
+//    LinkedList2 linkedList2;
 //    list_head_insert(linkedList2);
 //    printLinkedList2(linkedList2);
-    list_tail_insert(linkedList2);
-    printLinkedList2(linkedList2);
+//    list_tail_insert(linkedList2);
+//    printLinkedList2(linkedList2);
 //    LNode2Alias *lNode2 = getElement2(linkedList2, 5);
 //    LNode2Alias *locatedElement2 = locateElement(linkedList2, 4);
 //    bool insertedIntoList2 = insertIntoList2(linkedList2, 5, 9);
@@ -151,16 +152,31 @@ int main() {
 //    } else {
 //        printf("insert into list2 failed\n");
 //    }
-    bool deletedFromList2 = deleteFromList2(linkedList2, 4);
-    if (deletedFromList2) {
-        printf("delete from List2 success\n");
-        printLinkedList2(linkedList2);
-    } else {
-        printf("delete from List2 failed\n");
-    }
-
+//    bool deletedFromList2 = deleteFromList2(linkedList2, 4);
+//    if (deletedFromList2) {
+//        printf("delete from List2 success\n");
+//        printLinkedList2(linkedList2);
+//    } else {
+//        printf("delete from List2 failed\n");
+//    }
 
     printf("----Link List2 end ----\n");
+
+    printf("----Sq Stack start ----\n");
+    SqStack stack;
+    initStack(stack);
+    pushIntoStack(stack, 1);
+    pushIntoStack(stack, 2);
+    pushIntoStack(stack, 3);
+    pushIntoStack(stack, 4);
+    ElementType e;
+    peekStack(stack, e);
+    printf("e=%d", e);
+    ElementType e2;
+    popStack(stack, e2);
+    printf("%d", e2);
+
+    printf("----Sq Stack end ----\n");
 
     return 0;
 }
