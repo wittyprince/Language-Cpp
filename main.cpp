@@ -4,6 +4,7 @@
 #include "LinkedList.h"
 #include "LinkedList2.h"
 #include "SqStack.h"
+#include "ListStack.h"
 
 /**
  * 在子函数中修改主函数的变量值
@@ -177,6 +178,25 @@ int main() {
     printf("%d", e2);
 
     printf("----Sq Stack end ----\n");
+
+    printf("----List Stack start ----\n");
+    ListStackNode *listStackNode;
+    initListStack(listStackNode);
+    pushIntoListStack(listStackNode, 1);
+    pushIntoListStack(listStackNode, 2);
+
+    ElementType peekElement;
+    peekListStack(listStackNode, peekElement);
+    printf("peekElement=%d\n", peekElement);
+    pushIntoListStack(listStackNode, 3);
+    peekListStack(listStackNode, peekElement);
+    printf("peekElement=%d\n", peekElement);
+    ElementType popElement;
+    popListStack(listStackNode, popElement);
+    printf("popElement=%d\n", popElement);
+    popListStack(listStackNode, popElement);
+    printf("popElement=%d\n", popElement);
+    printf("----List Stack end ----\n");
 
     return 0;
 }

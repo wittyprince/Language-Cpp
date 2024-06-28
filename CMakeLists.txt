@@ -8,4 +8,5 @@ add_executable(Language_Cpp main.cpp
         SeqList_Header.h
         LinkedList.h
         LinkedList2.h
-        SqStack.h)
+        SqStack.h
+        ListStack.h)

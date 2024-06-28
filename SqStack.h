@@ -6,7 +6,7 @@
 #ifndef LANGUAGE_CPP_SQSTACK_H
 #define LANGUAGE_CPP_SQSTACK_H
 
-#define MaxSize 10
+#define MaxSize 50
 typedef int ElementType;
 
 typedef struct SqStack {
