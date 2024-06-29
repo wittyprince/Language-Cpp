@@ -9,7 +9,7 @@
 
 typedef int ElementType;
 
-//TODO 对不对？
+// 对不对？  对
 typedef struct ListStackNode {
     ElementType data; // 定义链表的数据域
     struct ListStackNode *next; // 定义链表的指针域
@@ -21,9 +21,16 @@ void initListStack(ListStackNode *&listStack) {
     listStack->next = NULL;
 }
 
+bool isListStackEmpty(ListStackNode *listStack, ElementType e) {
+    return listStack->next == NULL;
+}
+
 bool pushIntoListStack(ListStackNode *listStack, ElementType e) {
+    // 初始化新结点
     ListStackNode *top = (ListStackNode*) malloc(sizeof (ListStackNode));
     top->data = e;
+    top->next = NULL;
+    // 头插法
     top->next = listStack->next;
     listStack->next = top;
     return true;
