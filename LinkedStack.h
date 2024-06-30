@@ -15,7 +15,7 @@ typedef struct LinkedStackNode {
     struct LinkedStackNode *next; // 定义链表的指针域
 } LinkedStackNodeAlias;
 
-void initListStack(LinkedStackNodeAlias *&linkedStack) {
+void initLinkedStack(LinkedStackNodeAlias *&linkedStack) {
     linkedStack = (LinkedStackNodeAlias*) malloc(sizeof (LinkedStackNodeAlias));
     linkedStack->data = 0;
     linkedStack->next = NULL;

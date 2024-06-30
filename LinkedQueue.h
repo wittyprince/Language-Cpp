@@ -13,8 +13,8 @@ typedef struct LinkedNode {
 } LinkedNodeAlias;
 
 typedef struct LinkedQueue {
-    LinkedNode *front;
-    LinkedNode *rear;
+    LinkedNodeAlias *front;
+    LinkedNodeAlias *rear;
 } LinkedQueueAlias;
 
 void initLinkedQueue(LinkedQueueAlias *&listQueue) {

@@ -98,14 +98,14 @@ int main() {
     int idx = locateSqListElement(sqList, 9);
     printf("idx= %d\n", idx);
 
-    // 使用动态分配方式
+    //TODO 使用动态分配方式
     SeqList seqList;
     InitList(seqList);
 
     printf("----Sequence List end ----\n");
     //==================Sequence List end=======================
 
-    printf("----Link List start ----\n");
+    printf("----Linked List start ----\n");
     // 定义一个链表
     // 等价于 LinkedListNodeAlias *linkedList
     // 等价于 struct LinkedListNode *linkedList
@@ -120,9 +120,9 @@ int main() {
     insertIntoLinkedListTail(linkedList, 5);
     printLinkedList(linkedList);
 
-    LinkedListNode *gotElement = getElement(linkedList, 7);
+    LinkedListNodeAlias *gotElement = getElement(linkedList, 7);
 
-    LinkedListNode *locatedElement = locateElement(linkedList, 6);
+    LinkedListNodeAlias *locatedElement = locateElement(linkedList, 6);
 
     bool insertResult = insertIntoLinkedList(linkedList, 7, 6);
     if (insertResult) {
@@ -143,9 +143,9 @@ int main() {
     int theLengthOfLinkedList = getLinkedListLength(linkedList);
     printf("theLengthOfLinkedList: %d\n", theLengthOfLinkedList);
 
-    printf("----Link List end ----\n");
+    printf("----Linked List end ----\n");
 
-    printf("----Link List2 start ----\n");
+    printf("----Linked List2 start ----\n");
 //    LinkedList2 linkedList2;
 //    list_head_insert(linkedList2);
 //    printLinkedList2(linkedList2);
@@ -168,7 +168,7 @@ int main() {
 //        printf("delete from List2 failed\n");
 //    }
 
-    printf("----Link List2 end ----\n");
+    printf("----Linked List2 end ----\n");
 
     printf("----Sq Stack start ----\n");
     SqStack stack;
@@ -186,9 +186,9 @@ int main() {
 
     printf("----Sq Stack end ----\n");
 
-    printf("----List Stack start ----\n");
+    printf("----Linked Stack start ----\n");
     LinkedStackNodeAlias *linkedStack;
-    initListStack(linkedStack);
+    initLinkedStack(linkedStack);
     pushIntoLinkedStack(linkedStack, 1);
     pushIntoLinkedStack(linkedStack, 2);
 
@@ -203,7 +203,7 @@ int main() {
     printf("popElement=%d\n", popElement);
     popLinkedStack(linkedStack, popElement);
     printf("popElement=%d\n", popElement);
-    printf("----List Stack end ----\n");
+    printf("----Linked Stack end ----\n");
 
     printf("----Sq Queue start ----\n");
     SqQueue sqQueue;
