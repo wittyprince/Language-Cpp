@@ -5,7 +5,7 @@
 #include "LinkedList2.h"
 #include "SqStack.h"
 #include "LinkedStack.h"
-#include "SqQueue.h"
+#include "SqCircularQueue.h"
 #include "LinkedQueue.h"
 
 /**
@@ -206,7 +206,7 @@ int main() {
     printf("----Linked Stack end ----\n");
 
     printf("----Sq Queue start ----\n");
-    SqQueue sqQueue;
+    SqCircularQueue sqQueue;
     initSqQueue(sqQueue);
     bool sqQueueEmpty = isSqQueueEmpty(sqQueue);
     if (sqQueueEmpty) {
