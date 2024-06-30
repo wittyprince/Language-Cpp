@@ -106,8 +106,11 @@ int main() {
     //==================Sequence List end=======================
 
     printf("----Link List start ----\n");
-
-    LinkedList linkedList; // 定义一个链表
+    // 定义一个链表
+    // 等价于 LinkedListNodeAlias *linkedList
+    // 等价于 struct LinkedListNode *linkedList
+    // 有个问题是 什么时候定义为 结构体, 什么时候定义为 结构体指针 ?
+    LinkedList linkedList;
     initLinkedList(linkedList);
     insertIntoLinkedListHead(linkedList, 1);
     insertIntoLinkedListHead(linkedList, 2);
@@ -117,11 +120,11 @@ int main() {
     insertIntoLinkedListTail(linkedList, 5);
     printLinkedList(linkedList);
 
-    LNode *gotElement = getElement(linkedList, 7);
+    LinkedListNode *gotElement = getElement(linkedList, 7);
 
-    LNode *locatedElement = locateElement(linkedList, 6);
+    LinkedListNode *locatedElement = locateElement(linkedList, 6);
 
-    bool insertResult = insertIntoList(linkedList, 7, 6);
+    bool insertResult = insertIntoLinkedList(linkedList, 7, 6);
     if (insertResult) {
         printf("insert into LinkedList success\n");
         printLinkedList(linkedList);
@@ -129,7 +132,7 @@ int main() {
         printf("insert into LinkedList failed\n");
     }
 
-    bool deletedFromList = deleteFromList(linkedList, 6);
+    bool deletedFromList = deleteFromLinkedList(linkedList, 6);
     if (deletedFromList) {
         printf("delete success\n");
         printLinkedList(linkedList);
