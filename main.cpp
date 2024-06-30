@@ -6,7 +6,7 @@
 #include "SqStack.h"
 #include "LinkedStack.h"
 #include "SqQueue.h"
-#include "LinkQueue.h"
+#include "LinkedQueue.h"
 
 /**
  * 在子函数中修改主函数的变量值
@@ -225,16 +225,19 @@ int main() {
 
     printf("----Sq Queue end ----\n");
 
-    printf("----Link Queue start ----\n");
-    LinkQueue *listQueue; //TODO 需要声明为结构体指针吗？
-    initLinkQueue(listQueue);
-    pushIntoListQueue(listQueue, 1);
-    pushIntoListQueue(listQueue, 2);
-    pushIntoListQueue(listQueue, 3);
-
-
-
-    printf("----Link Queue end ----\n");
+    printf("----Linked Queue start ----\n");
+    LinkedQueueAlias *linkedQueue; //TODO 需要声明为结构体指针吗？
+    initLinkedQueue(linkedQueue);
+    enLinkedQueue(linkedQueue, 1);
+    enLinkedQueue(linkedQueue, 2);
+    enLinkedQueue(linkedQueue, 3);
+    ElementType deLinkedQueueElement;
+    deLinkedQueue(linkedQueue, deLinkedQueueElement);
+    printf("deLinkedQueueElement: %d\n", deLinkedQueueElement);
+    deLinkedQueue(linkedQueue, deLinkedQueueElement);
+    printf("deLinkedQueueElement: %d\n", deLinkedQueueElement);
+    deLinkedQueue(linkedQueue, deLinkedQueueElement);
+    printf("----Linked Queue end ----\n");
 
     return 0;
 }

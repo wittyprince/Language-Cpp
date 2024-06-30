@@ -8,6 +8,7 @@
 #define SqQueueMaxSize 5
 typedef int ElementType;
 
+// 队列
 typedef struct SqQueue {
     // 数组中最多存储SqQueueMaxSize-1 个元素，剩余一个空位用于区别 空对列 与 满队列
     ElementType data[SqQueueMaxSize];
