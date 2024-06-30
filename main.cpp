@@ -4,7 +4,7 @@
 #include "LinkedList.h"
 #include "LinkedList2.h"
 #include "SqStack.h"
-#include "ListStack.h"
+#include "LinkedStack.h"
 #include "SqQueue.h"
 #include "LinkQueue.h"
 
@@ -187,21 +187,21 @@ int main() {
     printf("----Sq Stack end ----\n");
 
     printf("----List Stack start ----\n");
-    ListStackNode *listStackNode;
-    initListStack(listStackNode);
-    pushIntoListStack(listStackNode, 1);
-    pushIntoListStack(listStackNode, 2);
+    ListStackNodeAlias *listStack;
+    initListStack(listStack);
+    pushIntoListStack(listStack, 1);
+    pushIntoListStack(listStack, 2);
 
     ElementType peekElement;
-    peekListStack(listStackNode, peekElement);
+    peekListStack(listStack, peekElement);
     printf("peekElement=%d\n", peekElement);
-    pushIntoListStack(listStackNode, 3);
-    peekListStack(listStackNode, peekElement);
+    pushIntoListStack(listStack, 3);
+    peekListStack(listStack, peekElement);
     printf("peekElement=%d\n", peekElement);
     ElementType popElement;
-    popListStack(listStackNode, popElement);
+    popListStack(listStack, popElement);
     printf("popElement=%d\n", popElement);
-    popListStack(listStackNode, popElement);
+    popListStack(listStack, popElement);
     printf("popElement=%d\n", popElement);
     printf("----List Stack end ----\n");
 
