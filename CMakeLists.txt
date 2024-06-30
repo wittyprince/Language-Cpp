@@ -10,4 +10,5 @@ add_executable(Language_Cpp main.cpp
         LinkedList2.h
         SqStack.h
         ListStack.h
-        SqQueue.h)
+        SqQueue.h
+        LinkQueue.h)
