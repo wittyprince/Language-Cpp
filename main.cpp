@@ -59,6 +59,7 @@ int main() {
     modifyPointerWithC(&p, q);
     printf("%d\n", *p);
 
+    //==================Sequence List start=======================
     // 顺序表
     printf("----Sequence List start ----\n");
     // 定义一个顺序表变量
@@ -102,6 +103,7 @@ int main() {
     InitList(seqList);
 
     printf("----Sequence List end ----\n");
+    //==================Sequence List end=======================
 
     printf("----Link List start ----\n");
 

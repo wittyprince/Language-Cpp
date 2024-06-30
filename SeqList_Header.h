@@ -11,6 +11,10 @@
 // typedef定义的别名后需要加分号;
 typedef int ElementType;
 
+// 顺序表
+// 线性表的实现方式之一, 说到实现, 所以顺序表是存储结构
+// 顺序表底层实现是基于 数组 实现的，又分为 静态分配 和 动态分配
+// 可参考: SqList_Header.h
 // 动态分配
 #define initSize 100
 typedef struct {
@@ -23,10 +27,11 @@ typedef struct {
     ElementType *data;
     int maxSize; // 动态数组的最大容量
     int length; // 记录当前顺序表的长度
-}SeqList;
+} SeqList;
 
 /**
  * 初始化顺序表
+ * 初始化一个带头结点的链表
  */
 void InitList(SeqList &L) {
     L.data = (ElementType *)malloc(sizeof (ElementType) * initSize);
@@ -34,7 +39,11 @@ void InitList(SeqList &L) {
     L.length = 0;
 }
 
-bool ListInsert(SeqList &L) {
+/**
+ * 基于头插法
+ */
+bool insertIntoSeqList(SeqList &L, ElementType e) {
+    //TODO
 
 
     return true;
