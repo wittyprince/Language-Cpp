@@ -2,8 +2,8 @@
 // Created by 51676 on 2024/6/24.
 //
 
-#ifndef LANGUAGE_CPP_SQLIST_HEADER_H
-#define LANGUAGE_CPP_SQLIST_HEADER_H
+#ifndef LANGUAGE_CPP_SQLIST_H
+#define LANGUAGE_CPP_SQLIST_H
 
 #include <stdio.h>
 
@@ -100,4 +100,4 @@ bool getSqListElement(SqList L, int position, ElementType &e) {
     e = L.data[position - 1];
     return true;
 }
-#endif //LANGUAGE_CPP_SQLIST_HEADER_H
+#endif //LANGUAGE_CPP_SQLIST_H

@@ -2,8 +2,8 @@
 // Created by 51676 on 2024/6/24.
 //
 
-#ifndef LANGUAGE_CPP_SEQLIST_HEADER_H
-#define LANGUAGE_CPP_SEQLIST_HEADER_H
+#ifndef LANGUAGE_CPP_SEQLIST_H
+#define LANGUAGE_CPP_SEQLIST_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -49,4 +49,4 @@ bool insertIntoSeqList(SeqList &L, ElementType e) {
     return true;
 }
 
-#endif //LANGUAGE_CPP_SEQLIST_HEADER_H
+#endif //LANGUAGE_CPP_SEQLIST_H

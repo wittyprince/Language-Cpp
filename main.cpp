@@ -1,6 +1,6 @@
 //#include <stdio.h>
-#include "SqList_Header.h"
-#include "SeqList_Header.h"
+#include "SqList.h"
+#include "SeqList.h"
 #include "LinkedList.h"
 #include "LinkedList2.h"
 #include "SqStack.h"
