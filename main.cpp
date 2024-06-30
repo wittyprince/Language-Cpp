@@ -187,21 +187,21 @@ int main() {
     printf("----Sq Stack end ----\n");
 
     printf("----List Stack start ----\n");
-    ListStackNodeAlias *listStack;
-    initListStack(listStack);
-    pushIntoListStack(listStack, 1);
-    pushIntoListStack(listStack, 2);
+    LinkedStackNodeAlias *linkedStack;
+    initListStack(linkedStack);
+    pushIntoLinkedStack(linkedStack, 1);
+    pushIntoLinkedStack(linkedStack, 2);
 
     ElementType peekElement;
-    peekListStack(listStack, peekElement);
+    peekLinkedStack(linkedStack, peekElement);
     printf("peekElement=%d\n", peekElement);
-    pushIntoListStack(listStack, 3);
-    peekListStack(listStack, peekElement);
+    pushIntoLinkedStack(linkedStack, 3);
+    peekLinkedStack(linkedStack, peekElement);
     printf("peekElement=%d\n", peekElement);
     ElementType popElement;
-    popListStack(listStack, popElement);
+    popLinkedStack(linkedStack, popElement);
     printf("popElement=%d\n", popElement);
-    popListStack(listStack, popElement);
+    popLinkedStack(linkedStack, popElement);
     printf("popElement=%d\n", popElement);
     printf("----List Stack end ----\n");
 

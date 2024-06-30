@@ -10,42 +10,42 @@
 typedef int ElementType;
 
 // 对不对？  对
-typedef struct ListStackNode {
+typedef struct LinkedStackNode {
     ElementType data; // 定义链表的数据域
-    struct ListStackNode *next; // 定义链表的指针域
-} ListStackNodeAlias;
+    struct LinkedStackNode *next; // 定义链表的指针域
+} LinkedStackNodeAlias;
 
-void initListStack(ListStackNodeAlias *&listStack) {
-    listStack = (ListStackNodeAlias*) malloc(sizeof (ListStackNodeAlias));
-    listStack->data = 0;
-    listStack->next = NULL;
+void initListStack(LinkedStackNodeAlias *&linkedStack) {
+    linkedStack = (LinkedStackNodeAlias*) malloc(sizeof (LinkedStackNodeAlias));
+    linkedStack->data = 0;
+    linkedStack->next = NULL;
 }
 
-bool isListStackEmpty(ListStackNodeAlias *listStack) {
-    return listStack->next == NULL;
+bool isLinkedStackEmpty(LinkedStackNodeAlias *linkedStack) {
+    return linkedStack->next == NULL;
 }
 
 /**
  * 如果用单链表实现栈，实现方法是链表的头插法，
  *   入栈时，从链表头部插入；
  *   出栈时，从链表头部删除。
- * @param listStack
+ * @param linkedStack
  * @param e
  * @return
  */
-bool pushIntoListStack(ListStackNodeAlias *listStack, ElementType e) {
+bool pushIntoLinkedStack(LinkedStackNodeAlias *linkedStack, ElementType e) {
     // 初始化新结点
-    ListStackNodeAlias *top = (ListStackNodeAlias*) malloc(sizeof (ListStackNodeAlias));
+    LinkedStackNodeAlias *top = (LinkedStackNodeAlias*) malloc(sizeof (LinkedStackNodeAlias));
     top->data = e;
     top->next = NULL;
     // 头插法
-    top->next = listStack->next;
-    listStack->next = top;
+    top->next = linkedStack->next;
+    linkedStack->next = top;
     return true;
 }
 
-bool peekListStack(ListStackNodeAlias *listStack, ElementType &e) {
-    ListStackNodeAlias *top = listStack->next;
+bool peekLinkedStack(LinkedStackNodeAlias *linkedStack, ElementType &e) {
+    LinkedStackNodeAlias *top = linkedStack->next;
     if (top == NULL) {
         return false;
     }
@@ -53,13 +53,13 @@ bool peekListStack(ListStackNodeAlias *listStack, ElementType &e) {
     return true;
 }
 
-bool popListStack(ListStackNodeAlias *listStack, ElementType &e) {
-    ListStackNodeAlias *top = listStack->next;
+bool popLinkedStack(LinkedStackNodeAlias *linkedStack, ElementType &e) {
+    LinkedStackNodeAlias *top = linkedStack->next;
     if (top == NULL) {
         return false;
     }
     e = top->data;
-    listStack->next = top->next;
+    linkedStack->next = top->next;
     free(top);
     top = NULL;
     return true;
