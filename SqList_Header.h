@@ -29,7 +29,7 @@ typedef struct {
  *                      位置从1开始, 下标从0开始
  * @param e         要插入的元素
  */
-bool ListInsert(SqList &L, int position, ElementType e) {
+bool insertIntoSqList(SqList &L, int position, ElementType e) {
     // 注意：这里是 L.length, 而不是MaxSize。MaxSize是用来判断是否溢出的。
     // 因为插入元素是顺序插入，即从第1个位置开始，到L.length+1结束之间的位置可以插入元素
     // 不会跳跃式的插入到L.length+2，因为中间不允许有空的位置出现
@@ -48,7 +48,7 @@ bool ListInsert(SqList &L, int position, ElementType e) {
     return true;
 }
 
-void printList(SqList L) {
+void printSqList(SqList L) {
     for (int i = 0; i < L.length; ++i) {
         printf("%3d", L.data[i]);
     }
@@ -62,7 +62,7 @@ void printList(SqList L) {
   * @param e            位置position上的元素的值(即要被删除的元素的值)
   * @return             true or false
   */
-bool ListDelete(SqList &L, int position, ElementType &e) {
+bool deleteFromSqList(SqList &L, int position, ElementType &e) {
     // 合法性检查 position 1 <= position <= L.length
     if (position < 1 || position > L.length) { // ①判断要删除的位置是否合法
         return false;
@@ -81,7 +81,7 @@ bool ListDelete(SqList &L, int position, ElementType &e) {
  * @param L     要查找的顺序表
  * @param e     要查找的元素
  */
-int LocateElement(SqList L, ElementType e) {
+int locateSqListElement(SqList L, ElementType e) {
     for (int i = 0; i < L.length; ++i) {
         if (L.data[i] == e) {
             return i + 1;
@@ -93,7 +93,7 @@ int LocateElement(SqList L, ElementType e) {
 /**
  * 查找第position个位置上的元素
  */
-bool getElement(SqList L, int position, ElementType &e) {
+bool getSqListElement(SqList L, int position, ElementType &e) {
     if (position < 1 || position > L.length) {
         return false;
     }

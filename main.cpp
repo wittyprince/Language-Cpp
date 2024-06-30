@@ -74,27 +74,27 @@ int main() {
     sqList.data[2] = 3;
     sqList.length = 3; // 此句指明了数组的长度，非常重要，否则会把length之后的默认值也打印出来
 
-    printList(sqList);
+    printSqList(sqList);
     bool ret;
-    ret = ListInsert(sqList, 4, 9);
+    ret = insertIntoSqList(sqList, 4, 9);
     if (ret) {
         printf("insert success\n");
-        printList(sqList);
+        printSqList(sqList);
     } else {
         printf("insert fail\n");
     }
 
     ElementType deletedElement;
-    bool deleted = ListDelete(sqList, 5, deletedElement);
+    bool deleted = deleteFromSqList(sqList, 5, deletedElement);
     if (deleted) {
         printf("delete success\n");
         printf("the deleted element is:%d\n", deletedElement);
-        printList(sqList);
+        printSqList(sqList);
     } else {
         printf("delete failed\n");
     }
 
-    int idx = LocateElement(sqList, 9);
+    int idx = locateSqListElement(sqList, 9);
     printf("idx= %d\n", idx);
 
     // 使用动态分配方式
