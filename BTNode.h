@@ -27,7 +27,7 @@ typedef struct btListNode {
 
 void preOrder(BTNode *btNode) {
     if (btNode != NULL) {
-        putchar(btNode->data);
+        putchar(btNode->data); // 等价于 printf("%c", btNode->data);
         preOrder(btNode->lChild);
         preOrder(btNode->rChild);
     }
