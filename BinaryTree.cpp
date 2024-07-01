@@ -9,7 +9,7 @@
 int main() {
 
     BTNode *root;
-    // calloc 会把结构体中的成员(元素)默认赋值为0值
+    // calloc 申请空间并对空间进行初始化, 会把结构体中的成员(元素)默认赋值为0值
     root = (BTNode *) calloc(1, sizeof (BTNode));
     char c;
     scanf("%c", &c);
