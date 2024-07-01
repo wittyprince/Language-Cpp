@@ -7,6 +7,7 @@
 #include "LinkedStack.h"
 #include "SqCircularQueue.h"
 #include "LinkedQueue.h"
+#include "LinkedCircularQueue.h"
 
 /**
  * 在子函数中修改主函数的变量值
@@ -239,5 +240,33 @@ int main() {
     deLinkedQueue(linkedQueue, deLinkedQueueElement);
     printf("----Linked Queue end ----\n");
 
+    printf("----Linked Circular Queue start ----\n");
+    LinkedCircularQueueAlias linkedCircularQueue; //TODO 需要声明为结构体指针吗？
+    initLinkedCircularQueue(linkedCircularQueue);
+    ElementType deLinkedCircularQueueElement;
+    bool deLinkedCircularQueueFlag = deLinkedCircularQueue(linkedCircularQueue, deLinkedCircularQueueElement);
+    if (deLinkedCircularQueueFlag) {
+        printf("deLinkedCircularQueue success: %d\n", deLinkedCircularQueueElement);
+    } else {
+        printf("deLinkedCircularQueue failed\n");
+    }
+    enLinkedCircularQueue(linkedCircularQueue, 1);
+    enLinkedCircularQueue(linkedCircularQueue, 2);
+    enLinkedCircularQueue(linkedCircularQueue, 3);
+    deLinkedCircularQueueFlag = deLinkedCircularQueue(linkedCircularQueue, deLinkedCircularQueueElement);
+    if (deLinkedCircularQueueFlag) {
+        printf("deLinkedCircularQueue success: %d\n", deLinkedCircularQueueElement);
+    } else {
+        printf("deLinkedCircularQueue failed\n");
+    }
+    enLinkedCircularQueue(linkedCircularQueue, 4);
+    deLinkedCircularQueueFlag = deLinkedCircularQueue(linkedCircularQueue, deLinkedCircularQueueElement);
+    if (deLinkedCircularQueueFlag) {
+        printf("deLinkedCircularQueue success: %d\n", deLinkedCircularQueueElement);
+    } else {
+        printf("deLinkedCircularQueue failed\n");
+    }
+
+    printf("----Linked Circular Queue end ----\n");
     return 0;
 }
