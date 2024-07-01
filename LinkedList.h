@@ -8,7 +8,7 @@
 typedef int ElementType;
 
 // 链表
-// 线性表 的实现方式之一, 说到实现, 所以顺序表是存储结构
+// 线性表 的实现方式之一, 说到实现, 所以 链表 是存储结构
 // 链表 底层实现是基于 结点 实现的
 typedef struct LinkedListNode { // 单链表节点类型
     ElementType data; // 定义数据域

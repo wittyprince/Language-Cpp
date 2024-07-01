@@ -86,7 +86,7 @@ LNode2Alias *getElement2(LinkedList2 linkedList2, int position) {
         return linkedList2;
     }
     linkedList2 = linkedList2->next;
-    for (int i = 1; i < position&&linkedList2 != NULL; ++i) {
+    for (int i = 1; i < position && linkedList2 != NULL; ++i) {
         linkedList2 = linkedList2->next;
     }
     return linkedList2;

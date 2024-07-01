@@ -12,7 +12,7 @@ typedef int ElementType;
 typedef struct SqStack {
     ElementType data[MaxSize]; // 顺序存储，底层用数组实现
     int top; // 栈顶
-}SqStack;
+} SqStack;
 
 void initStack(SqStack &stack) {
     stack.top = -1;

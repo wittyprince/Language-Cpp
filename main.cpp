@@ -65,7 +65,7 @@ int main() {
     printf("----Sequence List start ----\n");
     // 定义一个顺序表变量
 //    SqList sqList = {1, 2, 3, 4, 5}; // 这么赋值是不对的，因为sqList 是一个结构体，只不过结构体中包含了一个数组
-    SqList sqList;
+    SqList sqList; // 这里声明的是一个结构体对象
     // 赋值
     // 这么赋值也是不对的，编译不通过
     // 数组的赋值只能在声明的时候, 如 int arr[10] = {1, 2, 3, 4, 5, 0};
@@ -111,7 +111,7 @@ int main() {
     // 等价于 LinkedListNodeAlias *linkedList
     // 等价于 struct LinkedListNode *linkedList
     // 有个问题是 什么时候定义为 结构体, 什么时候定义为 结构体指针 ?
-    LinkedList linkedList;
+    LinkedList linkedList; // 这里声明的是一个结构体指针
     initLinkedList(linkedList);
     insertIntoLinkedListHead(linkedList, 1);
     insertIntoLinkedListHead(linkedList, 2);
@@ -172,7 +172,7 @@ int main() {
     printf("----Linked List2 end ----\n");
 
     printf("----Sq Stack start ----\n");
-    SqStack stack;
+    SqStack stack; // 这里声明的是一个结构体对象
     initStack(stack);
     pushIntoStack(stack, 1);
     pushIntoStack(stack, 2);
@@ -188,7 +188,7 @@ int main() {
     printf("----Sq Stack end ----\n");
 
     printf("----Linked Stack start ----\n");
-    LinkedStackNodeAlias *linkedStack;
+    LinkedStackNodeAlias *linkedStack; // 这里声明的是一个结构体指针
     initLinkedStack(linkedStack);
     pushIntoLinkedStack(linkedStack, 1);
     pushIntoLinkedStack(linkedStack, 2);
@@ -207,7 +207,7 @@ int main() {
     printf("----Linked Stack end ----\n");
 
     printf("----Sq Queue start ----\n");
-    SqCircularQueue sqQueue;
+    SqCircularQueueAlias sqQueue; // 这里声明的是一个结构体
     initSqQueue(sqQueue);
     bool sqQueueEmpty = isSqQueueEmpty(sqQueue);
     if (sqQueueEmpty) {
@@ -227,7 +227,9 @@ int main() {
     printf("----Sq Queue end ----\n");
 
     printf("----Linked Queue start ----\n");
-    LinkedQueueAlias *linkedQueue; //TODO 需要声明为结构体指针吗？
+    //TODO 需要声明为结构体指针吗？ 这里也可以声明为结构体
+    // 声明为结构体时, 需要修改initLinkedQueue()方法
+    LinkedQueueAlias *linkedQueue;
     initLinkedQueue(linkedQueue);
     enLinkedQueue(linkedQueue, 1);
     enLinkedQueue(linkedQueue, 2);
