@@ -45,6 +45,11 @@ int main() {
             currentBtListNode = currentBtListNode->nextBtListNode;
         }
     }
-
+    preOrder(root);
+    printf("\n");
+    inOrder(root);
+    printf("\n");
+    postOrder(root);
+    printf("\n");
     return 0;
 }

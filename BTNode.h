@@ -25,8 +25,28 @@ typedef struct btListNode {
     struct btListNode *nextBtListNode;
 } BTListNode;
 
-void initBTNode(BTNode *&btNode) {
-    btNode = (BTNode *)calloc(1, sizeof (BTNode));
+void preOrder(BTNode *btNode) {
+    if (btNode != NULL) {
+        putchar(btNode->data);
+        preOrder(btNode->lChild);
+        preOrder(btNode->rChild);
+    }
+}
+
+void inOrder(BTNode *btNode) {
+    if (btNode != NULL) {
+        inOrder(btNode->lChild);
+        putchar(btNode->data);
+        inOrder(btNode->rChild);
+    }
+}
+
+void postOrder(BTNode *btNode) {
+    if (btNode != NULL) {
+        postOrder(btNode->lChild);
+        postOrder(btNode->rChild);
+        putchar(btNode->data);
+    }
 }
 
 #endif //LANGUAGE_CPP_BTNODE_H
