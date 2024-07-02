@@ -25,28 +25,51 @@ typedef struct btListNode {
     struct btListNode *next;
 } BTListNode;
 
-void preOrder(BTNode *btNode) {
-    if (btNode != NULL) {
-        putchar(btNode->data); // 等价于 printf("%c", btNode->data);
-        preOrder(btNode->left);
-        preOrder(btNode->right);
-    }
-}
+// 借助队列
+typedef BTNode* ElementType;
+typedef struct LinkedNode {
+    ElementType data; // 数据域
+    struct LinkedNode *next;
+} LinkedNodeAlias;
+typedef struct LinkedQueue {
+    LinkedNodeAlias *front;
+    LinkedNodeAlias *rear;
+} LinkedQueueAlias;
 
-void inOrder(BTNode *btNode) {
-    if (btNode != NULL) {
-        inOrder(btNode->left);
-        putchar(btNode->data);
-        inOrder(btNode->right);
-    }
+// ===================================================================
+void initLinkedQueue(LinkedQueueAlias *&listQueue) {
+    LinkedNodeAlias *head = (LinkedNodeAlias *)malloc(sizeof (LinkedNodeAlias));
+    head->data = {};
+    head->next = NULL;
+    listQueue = (LinkedQueueAlias *) malloc(sizeof (LinkedQueueAlias));
+    listQueue->front = listQueue->rear = head;
 }
-
-void postOrder(BTNode *btNode) {
-    if (btNode != NULL) {
-        postOrder(btNode->left);
-        postOrder(btNode->right);
-        putchar(btNode->data);
-    }
+bool enLinkedQueue(LinkedQueueAlias *&listQueue, ElementType e) {
+    LinkedNodeAlias *tmpNode = (LinkedNodeAlias *)malloc(sizeof (LinkedNodeAlias));
+    tmpNode->data = e;
+    tmpNode->next = NULL;
+    listQueue->rear->next = tmpNode;
+    listQueue->rear = tmpNode;
+    return true;
 }
-
+bool deLinkedQueue(LinkedQueueAlias *&linkedQueue, ElementType &e) {
+    if (linkedQueue->front == linkedQueue->rear) {
+        return false;
+    }
+    // 由于LinkedQueue是带头结点的, 所以不linkedQueue->front不可能为空
+    LinkedNodeAlias *firstNode = linkedQueue->front->next;
+    if (firstNode == NULL) {
+        return false;
+    }
+    e = firstNode->data;
+    // 头结点不动, 把第一个节点断链
+    linkedQueue->front->next = firstNode->next;
+    if (firstNode == linkedQueue->rear) {
+        linkedQueue->rear = linkedQueue->front;
+    }
+    // free第一个节点
+    free(firstNode);
+    return true;
+}
+// ===================================================================
 #endif //LANGUAGE_CPP_BTNODE_H

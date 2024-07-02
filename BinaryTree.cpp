@@ -5,6 +5,50 @@
 #include <stdlib.h>
 #include "BTNode.h"
 
+// ===================================================================
+void preOrder(BTNode *btNode) {
+    if (btNode != NULL) {
+        putchar(btNode->data); // 等价于 printf("%c", btNode->data);
+        preOrder(btNode->left);
+        preOrder(btNode->right);
+    }
+}
+
+void inOrder(BTNode *btNode) {
+    if (btNode != NULL) {
+        inOrder(btNode->left);
+        putchar(btNode->data);
+        inOrder(btNode->right);
+    }
+}
+
+void postOrder(BTNode *btNode) {
+    if (btNode != NULL) {
+        postOrder(btNode->left);
+        postOrder(btNode->right);
+        putchar(btNode->data);
+    }
+}
+
+void levelOrder(BTNode *btNode) {
+    LinkedQueueAlias *linkedQueue;
+    initLinkedQueue(linkedQueue);
+    enLinkedQueue(linkedQueue, btNode); // 把二叉树节点入队
+    BTNode *tmpBTNode; // 存放出队的临时二叉树节点
+    // 队列不为空时
+    while (linkedQueue->front != linkedQueue->rear) {
+        deLinkedQueue(linkedQueue, tmpBTNode); // 出队
+        putchar(tmpBTNode->data); // 打印出队的二叉树节点的数据
+        if (tmpBTNode->left != NULL) { // 如果出队的二叉树节点的左孩子不为空, 那么入队
+            enLinkedQueue(linkedQueue, tmpBTNode->left);
+        }
+        if (tmpBTNode->right != NULL) { // 如果出队的二叉树节点的右孩子不为空, 那么入队
+            enLinkedQueue(linkedQueue, tmpBTNode->right);
+        }
+    }
+
+}
+// ===================================================================
 
 int main() {
 
@@ -55,5 +99,9 @@ int main() {
     // 后续遍历
     postOrder(root);
     printf("\n");
+
+    // 层序遍历
+    levelOrder(root);
+
     return 0;
 }
