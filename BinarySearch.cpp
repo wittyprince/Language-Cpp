@@ -35,7 +35,7 @@ void printTable(SeqTable table) {
     printf("\n");
 }
 
-// 普通顺序查找方法
+// 二分查找, 时间复杂度logn
 int binarySearch(SeqTable table, int searchValue) {
     int low = 0, high = table.length - 1;
     int mid;
