@@ -43,6 +43,20 @@ int search(SeqTable table, int searchValue) {
     return 0;
 }
 
+int search2(SeqTable table, int searchValue) {
+    table.data[0] = searchValue;
+    int i;
+    for (i = table.length - 1; i >= 0 && table.data[i] != searchValue; i--);
+    return i;
+}
+
+int search3(SeqTable table, int searchValue) {
+    table.data[0] = searchValue;
+    int i;
+    for (i = table.length - 1; table.data[i] != searchValue; i--);
+    return i;
+}
+
 int main() {
 
     SeqTable table;
@@ -51,7 +65,7 @@ int main() {
     int value;
     printf("please input the value that you want to search:\n");
     scanf("%d", &value);
-    int result = search(table, value);
+    int result = search3(table, value);
     if (result) {
         printf("position:%d", result);
     } else {
