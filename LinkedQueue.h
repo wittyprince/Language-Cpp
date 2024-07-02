@@ -8,7 +8,7 @@
 typedef int ElementType;
 
 typedef struct LinkedNode {
-    ElementType data; // 数据与
+    ElementType data; // 数据域
     struct LinkedNode *next;
 } LinkedNodeAlias;
 
@@ -35,7 +35,7 @@ bool enLinkedQueue(LinkedQueueAlias *&listQueue, ElementType e) {
     return true;
 }
 
-//TODO
+
 bool deLinkedQueue(LinkedQueueAlias *&linkedQueue, ElementType &e) {
     if (linkedQueue->front == linkedQueue->rear) {
         return false;
@@ -46,10 +46,12 @@ bool deLinkedQueue(LinkedQueueAlias *&linkedQueue, ElementType &e) {
         return false;
     }
     e = firstNode->data;
+    // 头结点不动, 把第一个节点断链
     linkedQueue->front->next = firstNode->next;
     if (firstNode == linkedQueue->rear) {
         linkedQueue->rear = linkedQueue->front;
     }
+    // free第一个节点
     free(firstNode);
     return true;
 }

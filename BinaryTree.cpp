@@ -8,6 +8,7 @@
 
 int main() {
 
+    // 层次建树
     BTNode *root;
     // calloc 申请空间并对空间进行初始化, 会把结构体中的成员(元素)默认赋值为0值
     root = (BTNode *) calloc(1, sizeof (BTNode));
@@ -45,10 +46,13 @@ int main() {
             currentBtListNode = currentBtListNode->nextBtListNode;
         }
     }
+    // 前序遍历
     preOrder(root);
     printf("\n");
+    // 中序遍历
     inOrder(root);
     printf("\n");
+    // 后续遍历
     postOrder(root);
     printf("\n");
     return 0;
