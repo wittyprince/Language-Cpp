@@ -27,13 +27,14 @@ void initTable (SeqTable &table, int length) {
 }
 
 void printTable(SeqTable table) {
-    // 第0个用于存储哨兵, 从第1个开始存储数据
+    // 第0个用于存储哨兵, 从第1个开始存储数据, 不使用哨兵也可以
     for (int i = 1; i < table.length; ++i) {
         printf("%3d", table.data[i]);
     }
     printf("\n");
 }
 
+// 普通顺序查找方法
 int search(SeqTable table, int searchValue) {
     for (int i = 1; i < table.length; ++i) {
         if(table.data[i] == searchValue) {
@@ -44,14 +45,14 @@ int search(SeqTable table, int searchValue) {
 }
 
 int search2(SeqTable table, int searchValue) {
-    table.data[0] = searchValue;
+    table.data[0] = searchValue; // 让零号元素作为哨兵
     int i;
     for (i = table.length - 1; i >= 0 && table.data[i] != searchValue; i--);
     return i;
 }
 
 int search3(SeqTable table, int searchValue) {
-    table.data[0] = searchValue;
+    table.data[0] = searchValue; // 让零号元素作为哨兵
     int i;
     for (i = table.length - 1; table.data[i] != searchValue; i--);
     return i;
