@@ -13,6 +13,28 @@ typedef struct bstNode {
     struct bstNode *right;
 }BSTNode, *BSTree;
 
+bool insertIntoBSTree2(BSTree &root, KeyType key) {
+    // root为NULL, 代表此节点还未创建, 为新节点申请空间, 由于是递归调用，该节点不一定为树根
+    if (root == NULL) {
+        root = (BSTNode *) malloc(sizeof(BSTNode));
+        root->data = key;
+        root->left = root->right = NULL;
+        return true;
+    }
+    // 如果要插入的结点，小于当前结点
+    // 那么向左寻找要插入的位置, 一直递归,
+    //      直到向左或向右找到 位置(即该位置为NULL, 通过root==NULL判断来为当前节点申请空间并赋值)
+    if (key < root->data) {
+        //函数调用结束后，左孩子和原来的父亲会关联起来，巧妙利用了引用机制
+        insertIntoBSTree2(root->left, key); //TODO 这里需要使用return吗?
+    } else if (key > root->data) {
+        insertIntoBSTree2(root->right, key);
+    } else {
+        return false; //发现相同元素，就不插入
+    }
+    return true;
+}
+
 bool insertIntoBSTree(BSTree &root, KeyType key) {
     if (root == NULL) { // root为NULL, 代表此时树还未创建, 为新节点申请空间, 第一个节点作为树根
         root = (BSTNode*)malloc(sizeof (BSTNode));
