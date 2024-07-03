@@ -26,9 +26,9 @@ bool insertIntoBSTree2(BSTree &root, KeyType key) {
     //      直到向左或向右找到 位置(即该位置为NULL, 通过root==NULL判断来为当前节点申请空间并赋值)
     if (key < root->data) {
         //函数调用结束后，左孩子和原来的父亲会关联起来，巧妙利用了引用机制
-        insertIntoBSTree2(root->left, key); //TODO 这里需要使用return吗?
+        return insertIntoBSTree2(root->left, key); //TODO 这里需要使用return吗? 按道理应该是需要使用return的
     } else if (key > root->data) {
-        insertIntoBSTree2(root->right, key);
+        return insertIntoBSTree2(root->right, key);
     } else {
         return false; //发现相同元素，就不插入
     }
