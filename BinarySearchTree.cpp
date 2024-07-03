@@ -126,6 +126,33 @@ void inOrder(BSTNode *root) {
     }
 }
 
+// 使用非递归方式删除二叉树中的当前节点
+bool deleteCurrentBSTNode2(BSTree &root, KeyType key) {
+
+    // 只有一个节点时, 无parent之说
+    BSTNode * tmpToDeleteNode = root->left;
+    if (tmpToDeleteNode->left == NULL && tmpToDeleteNode->right == NULL) {
+        root->data = tmpToDeleteNode->data;
+        root->left = NULL;
+        free(tmpToDeleteNode);
+        return true;
+    }
+    // 处理多个节点时, 有parent, 可以通过parent来关联tmpToDeleteNode之后的节点
+    BSTNode *parent;
+    // 查找左子树的最大数据, 即左子树的最后节点
+    while (tmpToDeleteNode->right) {
+        parent = tmpToDeleteNode;
+        tmpToDeleteNode = tmpToDeleteNode->right;
+    }
+    // 用最大节点tmpToDeleteNode的数据 代替 当前root节点的数据
+    root->data = tmpToDeleteNode->data;
+    //在左子树中找到tmpToDeleteNode的值，把其删除
+    // 使用非递归方式删除二叉树中的当前节点
+    parent->right = tmpToDeleteNode->left;
+    free(tmpToDeleteNode);
+    return true;
+}
+
 bool deleteBSTNode(BSTree &root, KeyType key) {
     if (root == NULL) {
         return false;
@@ -140,7 +167,7 @@ bool deleteBSTNode(BSTree &root, KeyType key) {
             //TODO 这里不需要使用root的parent节点来关联root->right ?
             // 这是因为 deleteBSTNode()方法参数中BSTree &root使用的是引用,
             //      此时的root可以认为是其父节点的子节点(左或右),
-            //      因为root是由根遍历下来的, 这一点与下面的tmpToDeleteNode
+            //      因为root是由根遍历下来的, 这一点与下面的tmpToDeleteNode不同, why?因为是直接声明来的吗?
             // 所以可以使用root = root->right;来让其父节点的left或right指向root->right
             root = root->right;
             free(tmpDeleteNode);
@@ -161,9 +188,11 @@ bool deleteBSTNode(BSTree &root, KeyType key) {
             root->data = tmpToDeleteNode->data;
             //在左子树中找到tmpToDeleteNode的值，把其删除
             //TODO ? 再次调用递归, 难道不是 直接断链, 再free吗?
-//            tmpToDeleteNode = tmpToDeleteNode->left; // 此方法结果不正确
+//            tmpToDeleteNode = tmpToDeleteNode->left; // 此方法结果不正确, //TODO 此处和上面的root = root->right;不同, why?
 //            free(tmpToDeleteNode);
             return deleteBSTNode(root->left, tmpToDeleteNode->data); //TODO 要用return吗？
+            // 以下为非递归调用方式
+//            deleteCurrentBSTNode2(root, key);
         }
     }
 
@@ -194,7 +223,7 @@ int main() {
     inOrder(root);
     printf("\n");
 
-    deleteBSTNode(root, 54);
+    deleteBSTNode(root, 79);
     inOrder(root);
     printf("\n");
 
