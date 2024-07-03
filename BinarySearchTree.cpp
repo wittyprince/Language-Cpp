@@ -18,6 +18,7 @@ bool insertIntoBSTree(BSTree &root, KeyType key) {
         root = (BSTNode*)malloc(sizeof (BSTNode));
         root->data = key;
         root->left = root->right = NULL;
+        return true;
     }
     // 判断待插入元素key的位置
     BSTree cursor = root, parent;
