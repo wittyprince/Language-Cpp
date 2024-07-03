@@ -29,6 +29,9 @@ void insertIntoBSTNode(BSTNode *&root, int value) {
 }
 
 void inOrder(BSTNode *&root, int a[], int &idx) {
+    // 这里idx也可以声明为静态局部变量
+    // 静态局部变量只会初始化一次, 在函数内有效, 和全局变量类似
+//    static int idx = 0;
     if (root) { // 注意：这里是递归，用的是if，不是循环的时候用的while
         inOrder(root->left, a, idx);
         printf("%3d", root->data);
