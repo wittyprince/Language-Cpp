@@ -7,7 +7,7 @@
 
 // ===================================================================
 void preOrder(BTNode *btNode) {
-    if (btNode != NULL) {
+    if (btNode != NULL) { // 注意：这里是递归，用的是if，不是循环的时候用的while
         putchar(btNode->data); // 等价于 printf("%c", btNode->data);
         preOrder(btNode->left);
         preOrder(btNode->right);
