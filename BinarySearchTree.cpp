@@ -138,7 +138,9 @@ bool deleteBSTNode(BSTree &root, KeyType key) {
         if (root->left == NULL) { // 当前节点的左子树为空, 右子树直接顶上
             BSTNode *tmpDeleteNode = root;
             //TODO 这里不需要使用root的parent节点来关联root->right ?
-            // 这是因为 deleteBSTNode()方法参数中BSTree &root使用的是引用, 此时的root可以认为是其父节点的子节点(左或右)
+            // 这是因为 deleteBSTNode()方法参数中BSTree &root使用的是引用,
+            //      此时的root可以认为是其父节点的子节点(左或右),
+            //      因为root是由根遍历下来的, 这一点与下面的tmpToDeleteNode
             // 所以可以使用root = root->right;来让其父节点的left或right指向root->right
             root = root->right;
             free(tmpDeleteNode);
@@ -149,16 +151,18 @@ bool deleteBSTNode(BSTree &root, KeyType key) {
         } else { // 当前节点的左右子树均不为空
             // 一般的删除策略是左子树的最大数据 或 右子树的最小数据 代替要删除的节点
             // 这里采用左子树的最大数据 来代替 要删除的节点
-            // 下面查找左子树的最大数据
+            // 下面查找左子树的最大数据, 即左子树的最后节点
             // 循环遍历当前节点的右节点 直到 右节点 为空, 得到的节点便是最大数据节点
             BSTNode * tmpToDeleteNode = root->left;
-            while (tmpToDeleteNode->right != NULL) {
+            while (tmpToDeleteNode->right) {
                 tmpToDeleteNode = tmpToDeleteNode->right;
             }
             // 用最大节点tmpToDeleteNode的数据 代替 当前root节点的数据
             root->data = tmpToDeleteNode->data;
             //在左子树中找到tmpToDeleteNode的值，把其删除
             //TODO ? 再次调用递归, 难道不是 直接断链, 再free吗?
+//            tmpToDeleteNode = tmpToDeleteNode->left; // 此方法结果不正确
+//            free(tmpToDeleteNode);
             return deleteBSTNode(root->left, tmpToDeleteNode->data); //TODO 要用return吗？
         }
     }
