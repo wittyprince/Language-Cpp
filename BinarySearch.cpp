@@ -39,7 +39,7 @@ void printTable(SeqTable table) {
 int binarySearch(SeqTable table, int searchValue) {
     int low = 0, high = table.length - 1;
     int mid;
-    while (low <= high) {
+    while (low <= high) { // 注意这里是 <=
         mid = (low + high) / 2;
         if (table.data[mid] < searchValue) {
             low = mid + 1;
