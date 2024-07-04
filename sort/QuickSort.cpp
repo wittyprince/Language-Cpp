@@ -7,7 +7,7 @@
 
 
 // 快速排序
-#define len 5
+#define len 15
 
 int partition(int a[], int low, int high) {
     int pivot = a[low];
@@ -48,6 +48,7 @@ int partition2(int a[], int low, int high) {
     return low;
 }
 
+// 注意这里 position -1 和 position + 1 不能改为position
 void quickSort(int a[], int low, int high) {
     if (low < high) {
         int position = partition2(a, low, high);
@@ -66,14 +67,14 @@ void printArray(int *a, int length) {
 
 int main() {
 
-    int a[len]
-    = {1, 5, 3, 2, 6};
+    int a[len];
+//    = {1, 5, 3, 2, 6};
     srand(time(NULL));
     for (int i = 0; i < len; ++i) {
         a[i] = rand() % 100;
     }
     printArray(a, len);
-    quickSort(a, 0, 4);
+    quickSort(a, 0, len -1);
     printArray(a, len);
 
     return 0;
