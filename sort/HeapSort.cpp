@@ -151,19 +151,13 @@ void heapSort2(int a[], int length) {
 }
 
 int main() {
-
     int a[MaxSize] = {3, 87, 2, 93, 78, 56, 61, 38, 12, 40};
 //    srand(time(NULL));
 //    for (int i = 0; i < MaxSize; ++i) {
 //        a[i] = rand() % 100;
 //    }
-
     printArray(a, MaxSize);
     heapSort2(a, MaxSize);
     printArray(a, MaxSize);
-
-
-
-
     return 0;
 }
