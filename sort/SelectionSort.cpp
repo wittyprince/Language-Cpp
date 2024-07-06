@@ -47,8 +47,7 @@ void selectionSort2(int arr[], int length) {
             }
         }
         if (i != min) {
-        swap(arr[i], arr[min]);
-
+            swap(arr[i], arr[min]);
         }
     }
 }
