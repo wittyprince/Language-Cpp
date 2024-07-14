@@ -9,6 +9,9 @@
 // 快速排序
 #define len 15
 
+/**
+ * partition方法的目的是找到枢轴pivot(也可以叫做基准base)的位置
+ */
 int partition(int a[], int low, int high) {
     int pivot = a[low];
     while (low < high) {
