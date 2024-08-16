@@ -8,23 +8,21 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define arrSize 5
+#define arrSize 8
 
 void insertionSort(int a[], int length) {
     int insertValue, j;
-    bool moveFlag;
-    for (int i = 1; i < length; ++i) {
-        moveFlag = false;
-        insertValue = a[i];
-        for (j = i-1; j >= 0; j--) {
-            if (a[j] > insertValue) {
+    int idx;
+    for (int i = 0; i < length - 1; ++i) {
+        idx = i + 1;
+        insertValue = a[idx];
+        for (j = i; j >= 0; j--) {
+            if (insertValue < a[j]) {
                 a[j + 1] = a[j];
-                moveFlag = true;
+                idx = j;
             }
         }
-        if (moveFlag) {
-            a[j + 1] = insertValue;
-        }
+        a[idx] = insertValue;
     }
 }
 
@@ -53,13 +51,13 @@ void printArray(int *a, int length) {
 
 int main() {
 
-    int a[arrSize] = {3, 7, 2, 8, 1};
+    int a[arrSize] = {3, 7, 2, 8, 1, 9, 6, 5};
     srand(time(NULL));
     for (int i = 0; i < arrSize; ++i) {
         a[i] = rand() % 100;
     }
     printArray(a, arrSize);
-    insertionSort2(a, arrSize);
+    insertionSort(a, arrSize);
     printArray(a, arrSize);
     return 0;
 }
