@@ -111,7 +111,7 @@ void adjustMaxHeap2(int a[], int idxOfRoot, int length) {
     int son = dad * 2 + 1;
 //    int idxOfLeftChild = idxOfRoot * 2 + 1;
 //    int idxOfRightChild = idxOfRoot * 2 + 2; // 注意右子节点不一定存在
-    while (son < length) { // 这里先判断左子树 < length, 并不代表右子树就不满足要求。
+    while (son < length) { // 这里先判断左子树 < length, 并不代表右子树就满足<length要求。
         // 判断 左子结点 与 右子节点 的大小, son为较大节点的下标
         // a[son] < a[son + 1] 的优势 是不用分左右子树来分别处理
          if (son + 1 < length && a[son] < a[son + 1]) {
