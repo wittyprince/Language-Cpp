@@ -143,7 +143,7 @@ void heapSort2(int a[], int length) {
         // 调整剩余元素为大顶堆
         //      注意：由于上面第一遍已经把全部调整了一遍以满足大顶堆条件, 所以这里只需要调整根节点为0及其后续子节点即可
         adjustMaxHeap2(a, 0, leftElementNum);
-        // 排序
+        // 交换
         swap(a[0], a[leftElementNum - 1]);
         // 改变循环遍历条件
         leftElementNum--;
